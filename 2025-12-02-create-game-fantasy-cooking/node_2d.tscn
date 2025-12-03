@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://ceo6u0rvrsdb6"]
+
+[ext_resource type="Texture2D" uid="uid://2es2lgugaswu" path="res://icon.svg" id="1_wtcfe"]
+[ext_resource type="Script" uid="uid://uqkqe24q30ri" path="res://next_screen.gd" id="2_0e48y"]
+[ext_resource type="PackedScene" uid="uid://d05ackhgokk0" path="res://egg.tscn" id="3_0hol4"]
+[ext_resource type="Script" uid="uid://byu6178u01ams" path="res://spawn_object.gd" id="4_0hol4"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="next button" type="TouchScreenButton" parent="Camera2D"]
+position = Vector2(420, -64)
+texture_normal = ExtResource("1_wtcfe")
+action = "next"
+script = ExtResource("2_0e48y")
+
+[node name="back button" type="TouchScreenButton" parent="Camera2D"]
+position = Vector2(-547, -64)
+texture_normal = ExtResource("1_wtcfe")
+
+[node name="egg" parent="." instance=ExtResource("3_0hol4")]
+position = Vector2(-118, -149.99994)
+
+[node name="spawn object" type="TouchScreenButton" parent="."]
+position = Vector2(-379, -293)
+texture_normal = ExtResource("1_wtcfe")
+action = "Egg"
+script = ExtResource("4_0hol4")

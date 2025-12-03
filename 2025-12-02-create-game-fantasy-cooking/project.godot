@@ -11,5 +11,29 @@ config_version=5
 [application]
 
 config/name="2025-12-02-create-game-fantasy-cooking"
+run/main_scene="res://node_2d.tscn"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[input]
+
+click={
+"deadzone": 0.2,
+"events": []
+}
+next={
+"deadzone": 0.2,
+"events": []
+}
+back={
+"deadzone": 0.2,
+"events": []
+}
+Egg={
+"deadzone": 0.2,
+"events": []
+}
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
