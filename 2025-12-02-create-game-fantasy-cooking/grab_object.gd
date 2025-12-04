@@ -15,16 +15,15 @@ func _process(delta: float) -> void:
 
 
 
-func _input(event: InputEvent) -> void:
+func _input(event):
 	if event.is_action_pressed("click"):
 		print("object clicked")
 		Selected = true
 		Offset = get_global_mouse_position() - global_position
-		get_viewport().set_input_as_handled()
 
 	if event.is_action_released("click"):
 		Selected = false
-		print("Obejct let go")
 
 	if (Selected == true):
+		
 		global_position = get_global_mouse_position() - Offset
