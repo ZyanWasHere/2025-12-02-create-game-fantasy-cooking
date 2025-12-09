@@ -1,35 +1,32 @@
-[gd_scene load_steps=6 format=3 uid="uid://ceo6u0rvrsdb6"]
+[gd_scene load_steps=5 format=3 uid="uid://ceo6u0rvrsdb6"]
 
 [ext_resource type="Texture2D" uid="uid://2es2lgugaswu" path="res://icon.svg" id="1_wtcfe"]
-[ext_resource type="Script" uid="uid://uqkqe24q30ri" path="res://next_screen.gd" id="2_0e48y"]
 [ext_resource type="PackedScene" uid="uid://d05ackhgokk0" path="res://egg.tscn" id="3_0hol4"]
 [ext_resource type="Script" uid="uid://byu6178u01ams" path="res://spawn_object.gd" id="4_0hol4"]
-[ext_resource type="Script" uid="uid://c2lhgweigrwv" path="res://read_json_file.gd" id="5_q6r6c"]
+[ext_resource type="Script" uid="uid://ddwgcs7vv73hr" path="res://buttongrab.gd" id="4_q6r6c"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="next button" type="TouchScreenButton" parent="Camera2D"]
-position = Vector2(420, -64)
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Camera2D"]
+position = Vector2(-437, -295)
+scale = Vector2(0.890625, 0.890625)
 texture_normal = ExtResource("1_wtcfe")
-action = "next"
-script = ExtResource("2_0e48y")
-
-[node name="back button" type="TouchScreenButton" parent="Camera2D"]
-position = Vector2(-547, -64)
-texture_normal = ExtResource("1_wtcfe")
-
-[node name="spawn object" type="TouchScreenButton" parent="."]
-position = Vector2(-379, -293)
-texture_normal = ExtResource("1_wtcfe")
-action = "Egg"
 script = ExtResource("4_0hol4")
 
-[node name="final food" type="TouchScreenButton" parent="."]
-position = Vector2(-64, 166)
-texture_normal = ExtResource("1_wtcfe")
-script = ExtResource("5_q6r6c")
+[node name="egg" parent="Camera2D" instance=ExtResource("3_0hol4")]
 
-[node name="egg" parent="." instance=ExtResource("3_0hol4")]
-position = Vector2(-118, -149.99994)
+[node name="TextureButton" type="TextureButton" parent="Camera2D"]
+offset_left = -118.0
+offset_top = -216.0
+offset_right = 10.0
+offset_bottom = -88.0
+texture_normal = ExtResource("1_wtcfe")
+stretch_mode = 3
+script = ExtResource("4_q6r6c")
+
+[connection signal="pressed" from="Camera2D/TouchScreenButton" to="Camera2D/TouchScreenButton" method="_on_pressed"]
+[connection signal="released" from="Camera2D/TouchScreenButton" to="Camera2D/TouchScreenButton" method="_on_released"]
+[connection signal="button_down" from="Camera2D/TextureButton" to="Camera2D/TextureButton" method="_on_button_down"]
+[connection signal="button_up" from="Camera2D/TextureButton" to="Camera2D/TextureButton" method="_on_button_up"]

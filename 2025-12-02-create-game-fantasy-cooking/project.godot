@@ -17,19 +17,7 @@ config/icon="res://icon.svg"
 
 [input]
 
-click={
-"deadzone": 0.2,
-"events": []
-}
-next={
-"deadzone": 0.2,
-"events": []
-}
-back={
-"deadzone": 0.2,
-"events": []
-}
-Egg={
+"left click"={
 "deadzone": 0.2,
 "events": []
 }

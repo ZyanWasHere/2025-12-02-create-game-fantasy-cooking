@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://cnwfivx6agi5l" path="res://grab_object.gd" id="2_s80rl"]
 
 [node name="egg" type="TouchScreenButton"]
-modulate = Color(0.7374263, 0.3265121, 0.11073796, 1)
-scale = Vector2(0.890625, 0.890625)
 texture_normal = ExtResource("1_60cwx")
-action = "click"
 script = ExtResource("2_s80rl")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="released" from="." to="." method="_on_released"]

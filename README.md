@@ -1,3 +1,31 @@
+## 2025-12-08
+i have a big issue at the moment. i fundementally don't understand godot.
+i have an idea of what systems i want to create and how i want them to perform.
+PROBLEM: godot has a certain system that it wasn't you to abide by.
+
+EXAMPLE: i want to use the touchscreen to grab an object, perchance.
+THAT needs a specific function, which has specific rules that i'm not fully aware of.
+whenever i try to utalize it, because i am unaware of the niche rules it operates by -
+i end up with weird errors from usecases it wasn't predicting.
+
+TODO:
+- focus purely on understanding godot code...
+
+
+## 2025-12-04
+so we have a "central area" where we make the sandwich
+that central area is a function which checks if any item is on the sandwich
+afterwards it turns the corresponding value to true.
+
+i'm having issues actually getting multiple instances to move independently
+i'm going to try to get that working today.
+
+TODO:
+- move instances of an object individually
+- keep track of recipe we're making
+- compare to existing dataset of recipes
+
+
 ## 2025-12-03
 learning godot. the main issue i'm struggling with at the moment is:
 making new instances. when i make a new instance of an object -

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ceo6u0rvrsdb6"]
+
+[ext_resource type="Texture2D" uid="uid://2es2lgugaswu" path="res://icon.svg" id="1_wtcfe"]
+[ext_resource type="Script" uid="uid://byu6178u01ams" path="res://spawn_object.gd" id="4_0hol4"]
+[ext_resource type="Script" uid="uid://cnwfivx6agi5l" path="res://grab_object.gd" id="6_kdubu"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Camera2D"]
+position = Vector2(-437, -295)
+scale = Vector2(0.890625, 0.890625)
+texture_normal = ExtResource("1_wtcfe")
+script = ExtResource("4_0hol4")
+
+[node name="egg" type="TouchScreenButton" parent="Camera2D"]
+script = ExtResource("6_kdubu")
+
+[connection signal="pressed" from="Camera2D/TouchScreenButton" to="Camera2D/TouchScreenButton" method="_on_pressed"]
+[connection signal="released" from="Camera2D/TouchScreenButton" to="Camera2D/TouchScreenButton" method="_on_released"]

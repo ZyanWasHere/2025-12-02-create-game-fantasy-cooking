@@ -8,13 +8,12 @@ var EggObject = preload("res://egg.tscn")
 func _ready() -> void:
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("Egg"):
-		var MakeEgg = EggObject.instantiate()
-		get_tree().current_scene.add_child(MakeEgg)
-		print("made object")
+func _on_pressed() -> void:
+	var MakeEgg = EggObject.instantiate()
+	get_tree().current_scene.add_child(MakeEgg)
+	print("made object")
+	pass # Replace with function body.
 
 
-	pass
+func _on_texture_button_button_up() -> void:
+	pass # Replace with function body.
