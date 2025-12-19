@@ -1,11 +1,17 @@
 [gd_scene load_steps=3 format=3 uid="uid://d05ackhgokk0"]
 
 [ext_resource type="Texture2D" uid="uid://2es2lgugaswu" path="res://icon.svg" id="1_60cwx"]
-[ext_resource type="Script" uid="uid://cnwfivx6agi5l" path="res://grab_object.gd" id="2_s80rl"]
+[ext_resource type="Script" uid="uid://ddwgcs7vv73hr" path="res://grab_object.gd" id="2_s80rl"]
 
-[node name="egg" type="TouchScreenButton"]
+[node name="egg" type="TextureButton"]
+modulate = Color(0.8721862, 0.6231127, 0.4041456, 1)
+offset_left = -118.0
+offset_top = -216.0
+offset_right = 10.0
+offset_bottom = -88.0
 texture_normal = ExtResource("1_60cwx")
+stretch_mode = 3
 script = ExtResource("2_s80rl")
 
-[connection signal="pressed" from="." to="." method="_on_pressed"]
-[connection signal="released" from="." to="." method="_on_released"]
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]

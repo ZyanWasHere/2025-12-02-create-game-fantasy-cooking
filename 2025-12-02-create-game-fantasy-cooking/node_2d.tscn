@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ceo6u0rvrsdb6"]
+[gd_scene load_steps=4 format=3 uid="uid://ceo6u0rvrsdb6"]
 
 [ext_resource type="Texture2D" uid="uid://2es2lgugaswu" path="res://icon.svg" id="1_wtcfe"]
 [ext_resource type="PackedScene" uid="uid://d05ackhgokk0" path="res://egg.tscn" id="3_0hol4"]
 [ext_resource type="Script" uid="uid://byu6178u01ams" path="res://spawn_object.gd" id="4_0hol4"]
-[ext_resource type="Script" uid="uid://ddwgcs7vv73hr" path="res://buttongrab.gd" id="4_q6r6c"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -15,18 +14,9 @@ scale = Vector2(0.890625, 0.890625)
 texture_normal = ExtResource("1_wtcfe")
 script = ExtResource("4_0hol4")
 
-[node name="egg" parent="Camera2D" instance=ExtResource("3_0hol4")]
+[node name="egg" type="Node" parent="."]
 
-[node name="TextureButton" type="TextureButton" parent="Camera2D"]
-offset_left = -118.0
-offset_top = -216.0
-offset_right = 10.0
-offset_bottom = -88.0
-texture_normal = ExtResource("1_wtcfe")
-stretch_mode = 3
-script = ExtResource("4_q6r6c")
+[node name="grab" parent="egg" instance=ExtResource("3_0hol4")]
 
 [connection signal="pressed" from="Camera2D/TouchScreenButton" to="Camera2D/TouchScreenButton" method="_on_pressed"]
 [connection signal="released" from="Camera2D/TouchScreenButton" to="Camera2D/TouchScreenButton" method="_on_released"]
-[connection signal="button_down" from="Camera2D/TextureButton" to="Camera2D/TextureButton" method="_on_button_down"]
-[connection signal="button_up" from="Camera2D/TextureButton" to="Camera2D/TextureButton" method="_on_button_up"]
