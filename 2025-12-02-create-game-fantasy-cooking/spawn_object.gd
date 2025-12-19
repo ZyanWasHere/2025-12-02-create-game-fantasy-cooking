@@ -1,6 +1,10 @@
 extends TouchScreenButton
 
-var EggObject = preload("res://egg.tscn")
+# 1) you have to save object as a preload (idk i gotta look up how to do that again)
+# 2) put the object here
+# 3) on press spawn it.
+
+# var NameOfObject = preload("location in FileSystem")
 
 
 
@@ -9,11 +13,6 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _on_pressed() -> void:
-	var MakeEgg = EggObject.instantiate()
-	get_tree().current_scene.add_child(MakeEgg)
-	print("made object")
-	pass # Replace with function body.
-
-
-func _on_texture_button_button_up() -> void:
+#	var MakeObject = NameOfObject.instantiate()
+# 	get_tree().current_scene.add_child(MakeObject)
 	pass # Replace with function body.

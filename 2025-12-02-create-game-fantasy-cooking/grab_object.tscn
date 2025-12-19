@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://drdt60vhco1t7"]
+
+[ext_resource type="Script" uid="uid://ddwgcs7vv73hr" path="res://grab_object.gd" id="1_5jpfn"]
+
+[node name="grab object" type="TextureButton"]
+offset_right = 128.0
+offset_bottom = 128.0
+script = ExtResource("1_5jpfn")
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]

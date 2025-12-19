@@ -1,3 +1,34 @@
+## 2025-12-18
+well this is awkward. definitely skipped a few days. OKAY: what do we got?
+we can spawn items, and they can overlap. so a big problem is now fixed.
+as for the gameplay loop i think i want to lean into the curiosity element.
+we're making: little inferno + papa's pizzaria + fantasy = interesting combo.
+
+one big issue is code. apperantly you can only have 1 script per 1 object. wack.
+solution i've heard? parent objects together. so you have small micro-scripts.
+one object controls "grabbing" one controls "parameters" and so forth.
+i think that's wack but it should help me "break up" the code into feasable chunks.
+
+the last weirdest aspect to all this is the "preloading" aspect.
+preloading makes you spawn items, levels, objects - anything.
+but the method TO preload something is inherently... off...
+i'm trying to figure a better method for preloading objects.
+
+UPDATE: i figured out how to parent objects. HOPEFULLY that's all i gotta do.
+next up i want to have a re-usable script with SLIGHTLY different parameters
+that i can apply to every object.
+
+i guess i'm overthinking things. i should really start simple and go from there.
+i would like to make a cooking pot, take an object put it in that pot and transform it.
+from there i can then GO BACK retrospectively and fix up the code
+once i understand how it'd function.
+
+TODO:
+- figure out how to parent objects with code in tact.
+- diversify code.
+- figure out preloading
+
+
 ## 2025-12-09
 every input method has its own pros and cons...
 "touchscreenbutton" lacks the ability to detect overlayed objects instinctually.
