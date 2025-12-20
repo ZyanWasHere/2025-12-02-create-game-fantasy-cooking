@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7uysmqf1u5oj"]
+
+[ext_resource type="Script" uid="uid://bhmg1xx3lrac5" path="res://write_to_json.gd" id="1_0mkvr"]
+
+[node name="JsonTest" type="Node2D"]
+
+[node name="father" type="Node" parent="."]
+
+[node name="son" type="Node" parent="father"]
+script = ExtResource("1_0mkvr")

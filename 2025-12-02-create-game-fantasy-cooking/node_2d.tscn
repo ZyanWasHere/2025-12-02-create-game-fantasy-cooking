@@ -1,8 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://ceo6u0rvrsdb6"]
+[gd_scene load_steps=9 format=3 uid="uid://ceo6u0rvrsdb6"]
 
 [ext_resource type="Texture2D" uid="uid://2es2lgugaswu" path="res://icon.svg" id="1_wtcfe"]
 [ext_resource type="PackedScene" uid="uid://drdt60vhco1t7" path="res://grab_object.tscn" id="3_epypp"]
 [ext_resource type="Script" uid="uid://diabvp2dbusrv" path="res://spawn_object.gd" id="4_0hol4"]
+[ext_resource type="Script" uid="uid://jxifxggk0gu3" path="res://detect_mouse.gd" id="4_q6r6c"]
+[ext_resource type="PackedScene" uid="uid://dnoendc13osoy" path="res://egg_cooked.tscn" id="5_kdubu"]
+[ext_resource type="Script" uid="uid://tm0my1vi0ff4" path="res://cooking_pot.gd" id="6_d21ai"]
+[ext_resource type="PackedScene" uid="uid://b7uysmqf1u5oj" path="res://JSON-TEST.tscn" id="7_d21ai"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epypp"]
 size = Vector2(126, 129)
@@ -18,18 +22,28 @@ scale = Vector2(0.890625, 0.890625)
 texture_normal = ExtResource("1_wtcfe")
 script = ExtResource("4_0hol4")
 
-[node name="egg" type="Node" parent="."]
+[node name="egg raw" type="Node" parent="."]
 
-[node name="grab object" parent="egg" instance=ExtResource("3_epypp")]
+[node name="grab object" parent="egg raw" instance=ExtResource("3_epypp")]
 
-[node name="texture" type="TextureRect" parent="egg/grab object"]
+[node name="texture" type="TextureRect" parent="egg raw/grab object"]
 modulate = Color(0.7963856, 0.42696527, 0.32423905, 1)
 layout_mode = 0
 offset_right = 128.0
 offset_bottom = 128.0
 texture = ExtResource("1_wtcfe")
 
+[node name="detector2" type="Node2D" parent="egg raw/grab object"]
+
+[node name="collision box needs this" type="Area2D" parent="egg raw/grab object/detector2"]
+script = ExtResource("4_q6r6c")
+
+[node name="collision box" type="CollisionShape2D" parent="egg raw/grab object/detector2/collision box needs this"]
+position = Vector2(64, 64.5)
+shape = SubResource("RectangleShape2D_epypp")
+
 [node name="cooking pot" type="Node" parent="."]
+script = ExtResource("6_d21ai")
 
 [node name="grab object" parent="cooking pot" instance=ExtResource("3_epypp")]
 
@@ -42,13 +56,19 @@ texture = ExtResource("1_wtcfe")
 
 [node name="detector" type="Node2D" parent="cooking pot/grab object"]
 
-[node name="collision box needs this" type="Area2D" parent="cooking pot/grab object/detector"]
+[node name="collision box needs this" type="Area2D" parent="cooking pot/grab object/detector" groups=["utility"]]
+script = ExtResource("4_q6r6c")
 
 [node name="collision box" type="CollisionShape2D" parent="cooking pot/grab object/detector/collision box needs this"]
 position = Vector2(64, 64.5)
 shape = SubResource("RectangleShape2D_epypp")
 
 [node name="ResourcePreloader" type="ResourcePreloader" parent="."]
+resources = [PackedStringArray("egg_cooked"), [ExtResource("5_kdubu")]]
+
+[node name="JsonTest" parent="." instance=ExtResource("7_d21ai")]
 
 [connection signal="pressed" from="Camera2D/TouchScreenButton" to="Camera2D/TouchScreenButton" method="_on_pressed"]
 [connection signal="released" from="Camera2D/TouchScreenButton" to="Camera2D/TouchScreenButton" method="_on_released"]
+[connection signal="area_entered" from="egg raw/grab object/detector2/collision box needs this" to="egg raw/grab object/detector2/collision box needs this" method="_on_area_entered"]
+[connection signal="area_entered" from="cooking pot/grab object/detector/collision box needs this" to="cooking pot/grab object/detector/collision box needs this" method="_on_area_entered"]

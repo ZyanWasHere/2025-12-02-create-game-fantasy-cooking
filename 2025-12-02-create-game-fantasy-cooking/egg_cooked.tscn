@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dnoendc13osoy"]
+
+[ext_resource type="PackedScene" uid="uid://drdt60vhco1t7" path="res://grab_object.tscn" id="1_wm81s"]
+[ext_resource type="Texture2D" uid="uid://2es2lgugaswu" path="res://icon.svg" id="2_1d4m2"]
+[ext_resource type="Script" uid="uid://jxifxggk0gu3" path="res://detect_mouse.gd" id="3_8l2p2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epypp"]
+size = Vector2(126, 129)
+
+[node name="egg cooked" type="Node"]
+
+[node name="grab object" parent="." instance=ExtResource("1_wm81s")]
+visible = false
+
+[node name="texture" type="TextureRect" parent="grab object"]
+modulate = Color(0.7963856, 0.42696527, 0.32423905, 1)
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("2_1d4m2")
+
+[node name="detector2" type="Node2D" parent="grab object"]
+
+[node name="collision box needs this" type="Area2D" parent="grab object/detector2"]
+script = ExtResource("3_8l2p2")
+
+[node name="collision box" type="CollisionShape2D" parent="grab object/detector2/collision box needs this"]
+position = Vector2(64, 64.5)
+shape = SubResource("RectangleShape2D_epypp")
+
+[connection signal="area_entered" from="grab object/detector2/collision box needs this" to="grab object/detector2/collision box needs this" method="_on_area_entered"]

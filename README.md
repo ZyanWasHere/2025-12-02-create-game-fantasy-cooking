@@ -1,3 +1,38 @@
+## 2025-12-19
+today we're doing something simple.
+move object to collision. turn object into another.
+
+UPDATE: yeah no. that's hard. it SHOULD be easy.
+i want one object to have a variable, lets say.
+another script can then READ that variable and so something with it.
+however godot has very strange limitations that i didn't have to
+think about when i was working in unity3D
+... i'm telling you. the desire to make my own game engine is rising...
+HOW HARD CAN IT EVEN BE. it's not like it's any harder than THIS...
+
+OKAY: big concept. SCRAP EVERYTHING. WHAT IF - -
+you were able to play this game... in a word document. HEAR ME OUT.
+every input updates a json file. and we have ONE big script that scans
+that json file AND THEN decides behaviors based off of what it sees.
+that way you can also control everything in one big script and the hassle
+of messing around with thousands of micro scripts is no longer an issue.
+everything just PLUGS into the json file -
+and everything just READS the json file.
+
+UPDATE ARE YOU KIDDING ME? HOW DID I KNOCK THAT OUT IN 20 MINUTES!?
+I SPENT LIKE 2 HOURS TRYING TO USE THE NODE AND "CALL" SYSTEM OR WHATEVER
+yeah no we're parsing everything through json data. it's easier.
+... okay update. turns out that godot doesn't have like an append function.
+essentially: if you have a player data and item data they either have to be
+seperate (which means juggling multiple files) or everything is in one huge file
+(which means planning ahead). OR you can have like a "TMP" system where -
+everything is stored in their own script, AND data just updates when its used.
+so health isn't updated until you're hit, then it moves over into the json file
+a script deals with the consequences, sends you back the data,
+and then is fine erasing itself because it doesn't actually need to HOLD
+onto anything. it just juggles the unecessary.
+
+
 ## 2025-12-18
 well this is awkward. definitely skipped a few days. OKAY: what do we got?
 we can spawn items, and they can overlap. so a big problem is now fixed.
